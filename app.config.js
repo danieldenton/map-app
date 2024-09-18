@@ -1,34 +1,43 @@
-import 'dotenv/config';
+import "dotenv/config";
 
 export default {
   expo: {
-    name: 'mapApp',
-    slug: 'mapApp',
-    version: '1.0.0',
-    orientation: 'portrait',
-    icon: './assets/icon.png',
-    userInterfaceStyle: 'light',
+    name: "mapApp",
+    slug: "mapApp",
+    version: "1.0.0",
+    orientation: "portrait",
+    icon: "./assets/icon.png",
+    userInterfaceStyle: "light",
     splash: {
-      image: './assets/splash.png',
-      resizeMode: 'contain',
-      backgroundColor: '#ffffff',
+      image: "./assets/splash.png",
+      resizeMode: "contain",
+      backgroundColor: "#ffffff",
     },
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.danieldentondev.mapapp',
+      bundleIdentifier: "com.danieldentondev.mapapp",
       config: {
         googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
       },
     },
     android: {
       adaptiveIcon: {
-        foregroundImage: './assets/adaptive-icon.png',
-        backgroundColor: '#ffffff',
+        foregroundImage: "./assets/adaptive-icon.png",
+        backgroundColor: "#ffffff",
       },
     },
     web: {
-      favicon: './assets/favicon.png',
+      favicon: "./assets/favicon.png",
     },
-    plugins: ['expo-router'],
+    plugins: [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          locationAlwaysAndWhenInUsePermission:
+            "Allow mapApp to use your location.",
+        },
+      ],
+    ],
   },
 };
